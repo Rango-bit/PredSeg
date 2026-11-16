@@ -1,0 +1,18 @@
+PredSeg
+
+This repository integrates and modifies the local med-ijepa pretraining and
+VisualSeg-ijepa segmentation research implementations.
+
+Parts of the code are derived from I-JEPA:
+https://github.com/facebookresearch/ijepa
+Copyright (c) Meta Platforms, Inc. and affiliates. All rights reserved.
+Licensed under Creative Commons Attribution-NonCommercial 4.0 International.
+The full upstream license is retained in LICENSE.
+
+Modifications include hierarchical feature prediction and context reconstruction,
+SIGReg/VISReg and modality-conditioned regularization, frozen-backbone medical
+segmentation, predictive token fusion and decoders, unified package structure,
+portable data configuration, command-line launchers, and regression tests.
+
+This distribution retains the CC BY-NC 4.0 license. Third-party datasets,
+text-model weights, and pretrained checkpoints are not included.

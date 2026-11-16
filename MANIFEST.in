@@ -1,0 +1,3 @@
+recursive-include configs *.yaml
+recursive-include tests *.py
+include fig/model.pdf fig/model.png

@@ -1,0 +1,85 @@
+data:
+  dataset_name: null
+  include_datasets: null
+  exclude_datasets: null
+  min_train_images: 100
+  batch_size: 32
+  num_workers: 4
+  pin_mem: true
+  root_dir: data/segmentation
+  csv_dir: data
+  train_csv: train.csv
+  test_csv: test.csv
+  input_size: 224
+  persistent_workers: true
+  prefetch_factor: 2
+logging:
+  folder: outputs/segmentation/vit_small
+  write_tag: jepa
+  checkpoint_freq: 50
+model:
+  decoder_type: balanced
+  use_masked_predictive_fusion: true
+  masked_predictive_top_ratio: 0.2
+  patch_size: 14
+  pretrained_path: outputs/pretraining/vit_small/jepa-latest.pth.tar
+  decoder_hidden_dim: 384
+  decoder_num_heads: 8
+  decoder_fusion_depth: 4
+  decoder_mlp_ratio: 4.0
+  decoder_channels:
+  - 256
+  - 192
+  - 128
+  - 64
+  detail_channels: [64, 96, 128, 192]
+  decoder_dropout: 0.1
+  deep_supervision: true
+  auxiliary_loss_weights: [0.1, 0.2, 0.3]
+  boundary_loss_weight: 0.2
+  simple_decoder_hidden_dim: 256
+  simple_decoder_num_heads: 8
+  simple_decoder_dropout: 0.0
+  balanced_decoder_hidden_dim: 320
+  balanced_decoder_num_heads: 8
+  balanced_decoder_fusion_depth: 2
+  balanced_decoder_mlp_ratio: 3.0
+  balanced_decoder_channels:
+  - 224
+  - 160
+  - 112
+  - 56
+  balanced_detail_channels: [48, 64, 96, 128]
+  balanced_decoder_dropout: 0.05
+  balanced_deep_supervision: true
+  balanced_auxiliary_loss_weights: [0.2]
+  balanced_boundary_loss_weight: 0.15
+meta:
+  load_checkpoint: false
+  skip_completed: true
+  model_name: vit_small
+  pred_depth: 12
+  pred_emb_dim: 384
+  read_checkpoint: null
+  use_bfloat16: true
+  port: 29500
+  seed: 0
+optimization:
+  epochs: 250
+  final_lr: 1.0e-06
+  lr: 0.001
+  start_lr: 0.0001
+  warmup: 20
+  weight_decay: 0.0004
+early_stopping:
+  min_epochs: 50
+  patience: 20
+  relative_min_delta: 0.005
+  smoothing: 0.9
+testing:
+  checkpoint: null
+  output_dir: null
+  batch_size: 8
+  num_workers: 4
+  threshold: 0.5
+  save_predictions: false
