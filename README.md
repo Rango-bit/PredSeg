@@ -17,9 +17,8 @@ Structure-Guided Token Selection (SGTS) selects query positions from frozen full
 features. Agreement-Gated Prior Fusion (AGPF) combines predictions at those positions with the
 encoder features. The default decoder also uses a four-scale Light CNN detail pyramid.
 
-[![PredSeg architecture showing JEPA pretraining with MaCoReg and segmentation transfer with SGTS and AGPF](fig/model.png)](fig/model.pdf)
+[![PredSeg architecture showing JEPA pretraining with MaCoReg and segmentation transfer with SGTS and AGPF](fig/model.png)]
 
-<p align="center"><a href="fig/model.pdf">View the architecture diagram as a PDF</a></p>
 
 ## 🛠️ Installation
 
