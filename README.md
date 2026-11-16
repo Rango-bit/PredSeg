@@ -39,6 +39,11 @@ python -m pip install -e .
 
 ## 📂 Data preparation
 
+Many of the medical imaging datasets used in PredSeg are listed in Microsoft's BiomedParseData
+collection, which links to the original sources and hosts a subset of the datasets in processed form.
+Sign in to Hugging Face and accept the access terms to download the hosted files.
+[BiomedParseData on Hugging Face](https://huggingface.co/datasets/microsoft/BiomedParseData)
+
 ### Pretraining
 
 Create `data/pretrain.csv` with image paths and modality IDs. Relative image paths are resolved
