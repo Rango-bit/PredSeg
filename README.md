@@ -19,6 +19,14 @@ encoder features. The default decoder also uses a four-scale Light CNN detail py
 
 ![PredSeg architecture showing JEPA pretraining with MaCoReg and segmentation transfer with SGTS and AGPF](fig/model.png)
 
+## 📦 Pretrained Weights
+
+Download `jepa-latest.pth.tar` from **Assets** and save it to
+`outputs/pretraining/vit_small/jepa-latest.pth.tar`. [ViT-S/14 checkpoint (v0.1.0)](https://github.com/Rango-bit/PredSeg/releases/tag/v0.1.0)
+
+The checkpoint initializes the frozen EMA target encoder and JEPA predictor for segmentation
+transfer. If you store the file elsewhere, update `model.pretrained_path` in
+`configs/segmentation/vit_small.yaml`. Set `meta.pred_depth` to match the checkpoint's predictor depth.
 
 ## 🛠️ Installation
 
